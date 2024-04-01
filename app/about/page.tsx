@@ -2,7 +2,7 @@ export default async function Page() {
   return (
     <>
       {/* page */}
-      <div className="mx-auto flex w-full max-w-screen-sm flex-col space-y-4 py-12 px-4 text-primary dark:text-secondary-focus-dark font-sans">
+      <div className="mx-auto flex w-full max-w-screen-sm flex-col space-y-4 px-4 py-12 font-sans text-primary dark:text-secondary-focus-dark">
         <h1 className="pb-3 text-4xl font-semibold text-primary dark:text-primary-dark">
           About
         </h1>
