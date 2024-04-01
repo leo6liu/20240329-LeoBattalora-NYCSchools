@@ -6,9 +6,10 @@ import React, { useEffect, useState } from "react";
 import { a, useSpring, useTrail } from "@react-spring/web";
 import * as icons from "../components/icons";
 
-const Trail: React.FC<{ open: boolean; children: any }> = (
-  { open, children },
-) => {
+const Trail: React.FC<{ open: boolean; children: any }> = ({
+  open,
+  children,
+}) => {
   const items = React.Children.toArray(children);
   const trail = useTrail(items.length, {
     config: { mass: 5, tension: 2200, friction: 200 },
@@ -20,11 +21,7 @@ const Trail: React.FC<{ open: boolean; children: any }> = (
   return (
     <div>
       {trail.map(({ height, ...style }, index) => (
-        <a.div
-          key={index}
-          style={style}
-          className="flex justify-center"
-        >
+        <a.div key={index} style={style} className="flex justify-center">
           <a.div style={{ height }}>{items[index]}</a.div>
         </a.div>
       ))}
@@ -76,14 +73,14 @@ function NavBar(): JSX.Element {
       style={borderSpring}
       className="sticky top-0 z-10 flex w-full justify-center border-tertiary bg-bg dark:border-tertiary-dark dark:bg-bg-dark"
     >
-      <div className="flex w-full max-w-screen-lg items-center justify-between py-4 px-8">
+      <div className="flex w-full max-w-screen-lg items-center justify-between px-8 py-4">
         <Link href="/" passHref legacyBehavior>
           <a>
             {/* logo */}
             <div className="flex items-center">
-              <div className="flex flex-col -space-y-2 items-end">
-                <h1 className="font-bold text-3xl">NYC</h1>
-                <p className="text-lg tracking-[0.3em] -mr-1">schools</p>
+              <div className="flex flex-col items-end -space-y-2">
+                <h1 className="text-3xl font-bold">NYC</h1>
+                <p className="-mr-1 text-lg tracking-[0.3em]">schools</p>
               </div>
               <div>
                 <icons.MingcuteStatueOfLibertyLine className="h-10" />
@@ -102,33 +99,29 @@ function NavBar(): JSX.Element {
               onClick={() => setShowMenu(!showMenu)}
               className="translate-y-1"
             >
-              {showMenu
-                ? <icons.PhXBold className="h-8" />
-                : <icons.PhListBold className="h-8" />}
+              {showMenu ? (
+                <icons.PhXBold className="h-8" />
+              ) : (
+                <icons.PhListBold className="h-8" />
+              )}
             </button>
             {/* menu contents */}
             <div
-              className={"fixed bottom-0 top-0 left-0 right-0 z-20 bg-bg py-10 dark:bg-bg-dark" +
+              className={
+                "fixed bottom-0 left-0 right-0 top-0 z-20 bg-bg py-10 dark:bg-bg-dark" +
                 (collapsed ? " mt-16" : " mt-24") +
-                (showMenu ? "" : " hidden")}
+                (showMenu ? "" : " hidden")
+              }
             >
               <Trail open={showMenu}>
                 <Link href="/about" passHref legacyBehavior>
-                  <a
-                    className=""
-                    onClick={() => setShowMenu(!showMenu)}
-                  >
+                  <a className="" onClick={() => setShowMenu(!showMenu)}>
                     about
                   </a>
                 </Link>
                 <Link href="/explore" passHref legacyBehavior>
                   <a className="" onClick={() => setShowMenu(!showMenu)}>
                     explore
-                  </a>
-                </Link>
-                <Link href="/notes" passHref legacyBehavior>
-                  <a className="" onClick={() => setShowMenu(!showMenu)}>
-                    notes
                   </a>
                 </Link>
                 <Link href="/people" passHref legacyBehavior>
@@ -152,9 +145,11 @@ function NavBar(): JSX.Element {
                     }
                   }}
                 >
-                  {darkMode
-                    ? <icons.PhMoonBold className="h-6" />
-                    : <icons.PhSunBold className="h-6" />}
+                  {darkMode ? (
+                    <icons.PhMoonBold className="h-6" />
+                  ) : (
+                    <icons.PhSunBold className="h-6" />
+                  )}
                 </button>
               </Trail>
             </div>
@@ -164,38 +159,34 @@ function NavBar(): JSX.Element {
           <div className="hidden items-center space-x-5 text-secondary dark:text-secondary-dark sm:flex">
             <Link href="/about" passHref legacyBehavior>
               <a
-                className={pathname === "/about"
-                  ? "text-zinc-400 dark:text-zinc-300"
-                  : "duration-200 hover:text-zinc-400 dark:hover:text-zinc-300"}
+                className={
+                  pathname === "/about"
+                    ? "text-zinc-400 dark:text-zinc-300"
+                    : "duration-200 hover:text-zinc-400 dark:hover:text-zinc-300"
+                }
               >
                 about
               </a>
             </Link>
             <Link href="/explore" legacyBehavior>
               <a
-                className={pathname === "/explore"
-                  ? "text-zinc-400 dark:text-zinc-300"
-                  : "duration-200 hover:text-zinc-400 dark:hover:text-zinc-300"}
+                className={
+                  pathname === "/explore"
+                    ? "text-zinc-400 dark:text-zinc-300"
+                    : "duration-200 hover:text-zinc-400 dark:hover:text-zinc-300"
+                }
               >
                 explore
-              </a>
-            </Link>
-            <Link href="/notes" legacyBehavior>
-              <a
-                title="Notes"
-                className={pathname === "/notes"
-                  ? "text-zinc-400 dark:text-zinc-300"
-                  : "duration-200 hover:text-zinc-400 dark:hover:text-zinc-300"}
-              >
-                <icons.PhNoteBlankBold className="h-6" />
               </a>
             </Link>
             <Link href="/people" legacyBehavior>
               <a
                 title="People"
-                className={pathname === "/people"
-                  ? "text-zinc-400 dark:text-zinc-300"
-                  : "duration-200 hover:text-zinc-400 dark:hover:text-zinc-300"}
+                className={
+                  pathname === "/people"
+                    ? "text-zinc-400 dark:text-zinc-300"
+                    : "duration-200 hover:text-zinc-400 dark:hover:text-zinc-300"
+                }
               >
                 <icons.PhUsersThreeBold className="h-6" />
               </a>
@@ -215,9 +206,11 @@ function NavBar(): JSX.Element {
                 }
               }}
             >
-              {darkMode
-                ? <icons.PhMoonBold className="h-6" />
-                : <icons.PhSunBold className="h-6" />}
+              {darkMode ? (
+                <icons.PhMoonBold className="h-6" />
+              ) : (
+                <icons.PhSunBold className="h-6" />
+              )}
             </button>
           </div>
         </div>
