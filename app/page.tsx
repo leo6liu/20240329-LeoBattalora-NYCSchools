@@ -17,7 +17,7 @@ export default function Home() {
           afternoon on 2024/03/31. It is a simple webapp that calculates the
           average SAT scores for the five boroughs of NYC.
         </p>
-        <div className="mx-auto w-[24rem] py-8 sm:w-[30rem]">
+        <div className="mx-auto w-[20rem] py-8 sm:w-[24rem]">
           <NYC
             colors={{
               otherLand: "rgb(39 39 42)",
@@ -29,11 +29,28 @@ export default function Home() {
               statenIsland: "rgb(161 161 170)",
             }}
           />
+          <p className="text-center text-xs">
+            source:{" "}
+            <a
+              className="underline"
+              target="_blank"
+              href="https://commons.wikimedia.org/wiki/File:The_5_Boroughs_of_New_York_City.svg"
+            >
+              Wikimedia Commons
+            </a>
+          </p>
         </div>
         <p>
-          Try the website out in dark mode by clicking the moon icon in the
-          navigation bar. And also explore how the site responds to different
-          screen sizes!
+          Try the website out in{" "}
+          <span className="font-semibold underline decoration-2 underline-offset-2">
+            dark mode
+          </span>{" "}
+          by clicking the moon icon in the navigation bar. And also explore how
+          the site responds to different{" "}
+          <span className="font-semibold underline decoration-2 underline-offset-2">
+            screen sizes
+          </span>
+          !
         </p>
       </div>
     </>
