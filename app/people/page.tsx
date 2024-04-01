@@ -36,7 +36,7 @@ export default async function Page() {
               <p>
                 <span className="font-bold">Resume/CV: </span>
                 <Link
-                  href="/assets/people/resumes/battalora-leo.pdf"
+                  href="/assets/people/resumes/battalora_leo_2024_03_08.pdf"
                   passHref
                   legacyBehavior
                 >
