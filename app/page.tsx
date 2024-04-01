@@ -45,7 +45,7 @@ export default function Home() {
           <span className="font-semibold underline decoration-2 underline-offset-2">
             dark mode
           </span>{" "}
-          by clicking the moon icon in the navigation bar. And also explore how
+          by clicking the sun icon in the navigation bar. And also explore how
           the site responds to different{" "}
           <span className="font-semibold underline decoration-2 underline-offset-2">
             screen sizes
